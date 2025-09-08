@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ty_motors/views/pages/allcars_page.dart';
+import 'package:ty_motors/components.dart/carrentalcard.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -16,7 +16,8 @@ class SearchPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             TextField(
               decoration: InputDecoration(
@@ -25,6 +26,7 @@ class SearchPage extends StatelessWidget {
                 prefixIcon: Icon(Icons.search),
               ),
             ),
+
             ListTile(
               title: Text(
                 "RECOMMEDNDED FOR YOU",
@@ -32,46 +34,54 @@ class SearchPage extends StatelessWidget {
                   fontSize: 12,
                   letterSpacing: 3,
                   color: Colors.blueGrey,
-                  // suffixIcon: Icon(Icons.more),
                 ),
               ),
             ),
-            SizedBox(height: 20),
-            Expanded(child: Center(child: Text("No results found"))),
-            // ElevatedButton(
+
+            SizedBox(
+              height: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CarRentalCard(
+                    imagePath: 'assets/images/huracanspyder.jpeg',
+                    text: "Lamborghini Huracan Evo Spyder 2024",
+                    onTap: () {},
+                  ),
+                  CarRentalCard(
+                    imagePath: 'assets/images/huracanspyder.jpeg',
+                    text: "Lamborghini Huracan Evo Spyder 2024",
+                    onTap: () {},
+                  ),
+                  CarRentalCard(
+                    imagePath: 'assets/images/huracanspyder.jpeg',
+                    text: "Lamborghini Huracan Evo Spyder 2024",
+                    onTap: () {},
+                  ),
+                  CarRentalCard(
+                    imagePath: 'assets/images/huracanspyder.jpeg',
+                    text: "Lamborghini Huracan Evo Spyder 2024",
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ),
+            // SizedBox(height: MediaQuery.of(context).size.height * 0.400),
+
+            // FloatingActionButton.extended(
             //   onPressed: () {
             //     Navigator.push(
             //       context,
             //       MaterialPageRoute(
             //         builder: (context) {
-            //           return WidgetTree();
+            //           return AllcarsPage();
             //         },
             //       ),
             //     );
             //   },
-            //   style: ElevatedButton.styleFrom(
-            //     minimumSize: Size(double.infinity, 15),
-            //     backgroundColor: Colors.tealAccent,
-            //   ),
-            //   child: Text(
-            //     "View All Our Cars",
-            //     style: TextStyle(fontSize: 16, color: Colors.deepOrange),
-            //   ),
+            //   label: Text("View All Our Cars"),
+            //   icon: Icon(Icons.directions_car),
             // ),
-            FloatingActionButton.extended(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return AllcarsPage();
-                    },
-                  ),
-                );
-              },
-              label: Text("View All Our Cars"),
-              icon: Icon(Icons.directions_car),
-            ),
           ],
         ),
       ),

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:ty_motors/components.dart/extrabutton.dart';
+import 'package:ty_motors/components.dart/forgotpasswordbutton.dart';
+import 'package:ty_motors/components.dart/my_button.dart';
 import 'package:ty_motors/components.dart/my_textfield.dart';
 
-import 'package:ty_motors/components.dart/registerbutton.dart';
 import 'package:ty_motors/components.dart/square_tile.dart';
-import 'package:ty_motors/views/pages/login.dart';
+import 'package:ty_motors/views/pages/register_page.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class Login extends StatelessWidget {
+  Login({super.key});
 
-  get usernameController => null;
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
-  get passwordController => null;
+  void signUserIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -21,62 +23,41 @@ class RegisterPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
-              Icon(Icons.person, size: 70, color: Colors.teal),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              Icon(Icons.lock, size: 70, color: Colors.teal),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Text(
-                "welcome To Glo Cafe",
+                "welcome Back U've been missed",
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
                   color: Colors.grey[700],
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               MyTextfield(
                 controller: usernameController,
-                hintText: "First Name",
+                hintText: "UserName",
                 obscureText: false,
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
-              MyTextfield(
-                controller: usernameController,
-                hintText: "Last Name",
-                obscureText: false,
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
-              MyTextfield(
-                controller: usernameController,
-                hintText: "Gmail",
-                obscureText: false,
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
-              MyTextfield(
-                controller: usernameController,
-                hintText: "Phone Number",
-                obscureText: false,
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
-              MyTextfield(
-                controller: usernameController,
-                hintText: "Create Password",
-                obscureText: false,
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+              SizedBox(height: 5),
               MyTextfield(
                 controller: passwordController,
-                hintText: "Confirm Password",
+                hintText: "PassWord",
                 obscureText: true,
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Row(mainAxisAlignment: MainAxisAlignment.end),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [Forgotpasswordbutton()],
+                ),
               ),
-              //SizedBox(height: 5),
-              Registerbutton(),
+              SizedBox(height: 5),
+              MyButton(onTap: signUserIn),
+              SizedBox(height: 5),
 
-              //SizedBox(height: MediaQuery.of(context).size.height * 0.001),
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Row(
@@ -94,7 +75,7 @@ class RegisterPage extends StatelessWidget {
                   ],
                 ),
               ),
-              //SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+              SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -105,20 +86,23 @@ class RegisterPage extends StatelessWidget {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Padding(
-                padding: const EdgeInsets.all(5),
+                padding: EdgeInsets.all(
+                  MediaQuery.of(context).size.height * 0.04,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Already A Member?'),
-                    SizedBox(width: 5),
+                    Text('Not A Member?'),
                     Extrabutton(
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Login()),
+                          MaterialPageRoute(
+                            builder: (context) => RegisterPage(),
+                          ),
                         );
                       },
-                      text: 'Login',
+                      text: 'Register',
                     ),
                   ],
                 ),

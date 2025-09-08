@@ -18,7 +18,12 @@ class WidgetTree extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text("Nigeria"),
-
+        actions: [
+          IconButton(
+            icon: Icon(Icons.location_on, size: 34.0, color: Colors.blue),
+            onPressed: () {},
+          ),
+        ],
         centerTitle: false,
       ),
       body: ValueListenableBuilder(

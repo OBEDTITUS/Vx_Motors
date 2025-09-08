@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:ty_motors/views/pages/login_page.dart';
+import 'package:ty_motors/views/pages/login.dart';
 import 'package:ty_motors/views/pages/register_page.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -61,7 +61,7 @@ class WelcomePage extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginPage();
+                      return Login();
                     },
                   ),
                 );
